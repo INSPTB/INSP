@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui" >
+
+    <h:body>
+        <ui:composition template="Templates/templatePrincipal.xhtml">
+
+            <h:form>
+                <p:growl id="msgs" severity="info,warn"/>
+
+                <h:panelGrid columns="5">
+
+                    <!-- p01texto --> 
+                    <h:outputLabel value="1.- TEXTO:" for="p01texto" /> 
+                    <p:inputText id="p01texto" size="25" value="#{CaptutasMB.entidadPrueba.p01texto}" title="TEXTO" onkeypress="return tabular(event, this)" > 
+                        <p:ajax update="p01textoE" event="blur" /> 
+                        <f:validator validatorId="validadorTexto" /> 
+                        <f:attribute name="valorMissing" value="NHD"/> 
+                        <f:attribute name="max" value="255"/>
+                    </p:inputText> 
+                    <h:outputLabel escape="false" style="font-size: small; font-weight: bold" value="#{msg.p01texto}" for="p01texto" />
+                    <p:message id="p01textoE" for="p01texto" />
+
+
+                    <!-- p02numeroReal --> 
+                    <h:outputLabel value="2.- NUMERO REAL :" for="p02numeroReal" /> 
+                    <p:inputText id="p02numeroReal" size="2" value="#{CaptutasMB.entidadPrueba.p02numeroReal}" title="NUMERO REAL " onkeypress="return tabular(event, this)" > 
+                        <p:ajax update="p02numeroRealE" event="blur" /> 
+                        <f:validator validatorId="validadorNumeroReal" /> 
+                        <f:attribute name="valorMissing" value="999.000000"/> 
+                        <f:attribute name="max" value="100.000000"/> 
+                        <f:attribute name="min" value="0.000000"/> 
+                    </p:inputText> 
+                    <h:outputLabel escape="false" style="font-size: small; font-weight: bold" value="#{msg.p02numeroReal}" for="p02numeroReal" /> 
+                    <p:message id="p02numeroRealE" for="p02numeroReal" />
+
+
+                    <!-- p03categoria --> 
+                    <h:outputLabel value="3.- CATEGORIA:" for="p03categoria" /> 
+                    <p:inputText id="p03categoria" size="2" value="#{CaptutasMB.entidadPrueba.p03categoria}" title="CATEGORIA" onkeypress="return tabular(event, this)" > 
+                        <p:ajax update="p03categoriaE" event="blur" /> 
+                        <f:validator validatorId="validadorCategoria" /> 
+                        <f:attribute name="valorMissing" value="9"/> 
+                        <f:attribute name="values" value="1|2"/> 
+                    </p:inputText> <h:outputLabel escape="false" style="font-size: small; font-weight: bold" value="#{msg.p03categoria}" for="p03categoria" /> 
+                    <p:message id="p03categoriaE" for="p03categoria" />
+
+
+                    <!-- p04id --> 
+                    <h:outputLabel value="4.- ID:" for="p04id" /> 
+                    <p:inputText id="p04id" size="2" value="#{CaptutasMB.entidadPrueba.p04id}" title="ID" onkeypress="return tabular(event, this)" > 
+                        <p:ajax update="p04idE" event="blur" /> 
+                        <f:validator validatorId="validadorNumeroEntero" /> 
+                        <f:attribute name="valorMissing" value="999"/> 
+                        <f:attribute name="max" value="100"/> 
+                        <f:attribute name="min" value="0"/> 
+                    </p:inputText> 
+                    <h:outputLabel escape="false" style="font-size: small; font-weight: bold" value="#{msg.p04id}" for="p04id" /> 
+                    <p:message id="p04idE" for="p04id" />
+
+
+                    <!-- p05fechaDeCaptura --> 
+                    <h:outputLabel value="5.- FECHA DE CAPTURA:" for="p05fechaDeCaptura" /> 
+                    <p:inputMask id="p05fechaDeCaptura" size="10" mask="99/99/9999" value="#{CaptutasMB.entidadPrueba.p05fechaDeCaptura}" title="FECHA DE CAPTURA" onkeypress="return tabular(event, this)" > 
+                        <f:convertDateTime pattern="dd/MM/yyyy" /> <p:ajax update="p05fechaDeCapturaE" event="blur" /> 
+                        <f:validator validatorId="validadorFecha" /> 
+                        <f:attribute name="startDate" value="31/12/2013"/> 
+                        <f:attribute name="endDate" value="30/12/2015"/> 
+                    </p:inputMask> <h:outputLabel escape="false" style="font-size: small; font-weight: bold" value="#{msg.p05fechaDeCaptura}" for="p05fechaDeCaptura" /> 
+                    <p:message id="p05fechaDeCapturaE" for="p05fechaDeCaptura" />
+
+                    
+                    <p:commandButton value="Guardar"  process="@(form :not(.noupdate))" update="@form"  action="#{seguimientoAdultoMB.guardarSeguimientoAdulto()}"/>
+                </h:panelGrid>
+            </h:form>
+        </ui:composition>
+    </h:body>

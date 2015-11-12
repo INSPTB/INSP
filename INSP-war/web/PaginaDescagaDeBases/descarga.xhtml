@@ -1,0 +1,1397 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      >
+
+ <h:body>
+
+  <ui:composition template="../Templates/cuestionarioTemplate.xhtml">
+     
+   <ui:define name="captura_cuestionario">
+
+    <h:form>
+     <h:commandLink>  
+      <h:outputText value="EXPORTAR " style="font-size: 17pt;color:green;" />
+      <p:graphicImage value="/resources/img/excel.jpg" height="25" width="25" />  
+      <p:dataExporter type="xls" target="baseAnalisis" fileName="BaseAnalisis"/>
+     </h:commandLink>  
+     
+     <p:dataTable id="baseAnalisis" value="#{analisisMB.baseAnalisis1}" var="item" emptyMessage="No hay registros"
+                  paginator="true" rows="20" currentPageReportTemplate="Mostrando {startRecord}-{endRecord} de {totalRecords} registros"
+                  paginatorTemplate="{CurrentPageReport}  
+                  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "  resizableColumns="true" >
+      <f:facet name="header"> 
+       <div align="left">
+        <h:outputLabel value="Base de analisis I" />
+       </div>
+      </f:facet>
+
+
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="Folio"/>
+       </f:facet>
+       <h:outputText value="#{item.folio}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="Consultaconcita"/>
+       </f:facet>
+       <h:outputText value="#{item.consultaconcita}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P01nombream"/>
+       </f:facet>
+       <h:outputText value="#{item.p01nombream}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P01nombreap"/>
+       </f:facet>
+       <h:outputText value="#{item.p01nombreap}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P01nombrens"/>
+       </f:facet>
+       <h:outputText value="#{item.p01nombrens}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P02fecha"/>
+       </f:facet>
+       <h:outputText value="#{item.p02fecha}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P03sexo"/>
+       </f:facet>
+       <h:outputText value="#{item.p03sexo}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P04edead"/>
+       </f:facet>
+       <h:outputText value="#{item.p04edead}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P05embarazada"/>
+       </f:facet>
+       <h:outputText value="#{item.p05embarazada}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P06talla"/>
+       </f:facet>
+       <h:outputText value="#{item.p06talla}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P07peso"/>
+       </f:facet>
+       <h:outputText value="#{item.p07peso}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P08motivoconsulta"/>
+       </f:facet>
+       <h:outputText value="#{item.p08motivoconsulta}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P09cuantosdiasMolestia"/>
+       </f:facet>
+       <h:outputText value="#{item.p09cuantosdiasMolestia}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P10resfriado"/>
+       </f:facet>
+       <h:outputText value="#{item.p10resfriado}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P11tosflema"/>
+       </f:facet>
+       <h:outputText value="#{item.p11tosflema}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P12p1fiebre"/>
+       </f:facet>
+       <h:outputText value="#{item.p12p1fiebre}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P12p2fechainiciofiebre"/>
+       </f:facet>
+       <h:outputText value="#{item.p12p2fechainiciofiebre}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P12p3actualmentefiebre"/>
+       </f:facet>
+       <h:outputText value="#{item.p12p3actualmentefiebre}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P12p4fechafinfiebre"/>
+       </f:facet>
+       <h:outputText value="#{item.p12p4fechafinfiebre}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P13p1faltaaire"/>
+       </f:facet>
+       <h:outputText value="#{item.p13p1faltaaire}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P13p2fechainiciofaltaaire"/>
+       </f:facet>
+       <h:outputText value="#{item.p13p2fechainiciofaltaaire}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P13p3actualmentefaltaaire"/>
+       </f:facet>
+       <h:outputText value="#{item.p13p3actualmentefaltaaire}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P13p4fechafinfaltaaire"/>
+       </f:facet>
+       <h:outputText value="#{item.p13p4fechafinfaltaaire}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P14p1tos"/>
+       </f:facet>
+       <h:outputText value="#{item.p14p1tos}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P14p2fechainiciotos"/>
+       </f:facet>
+       <h:outputText value="#{item.p14p2fechainiciotos}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P14p3actualmentetos"/>
+       </f:facet>
+       <h:outputText value="#{item.p14p3actualmentetos}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P14p4fechafintos"/>
+       </f:facet>
+       <h:outputText value="#{item.p14p4fechafintos}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P15p1flemasaltoser"/>
+       </f:facet>
+       <h:outputText value="#{item.p15p1flemasaltoser}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P15p2fechainicioflemasaltoser"/>
+       </f:facet>
+       <h:outputText value="#{item.p15p2fechainicioflemasaltoser}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P15p3actualmenteflemasaltoser"/>
+       </f:facet>
+       <h:outputText value="#{item.p15p3actualmenteflemasaltoser}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P15p4fechafinflemasaltoser"/>
+       </f:facet>
+       <h:outputText value="#{item.p15p4fechafinflemasaltoser}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P16p1flemasamarillasverdes"/>
+       </f:facet>
+       <h:outputText value="#{item.p16p1flemasamarillasverdes}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P16p2fechainicioflemasamarillasverdes"/>
+       </f:facet>
+       <h:outputText value="#{item.p16p2fechainicioflemasamarillasverdes}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P16p3actualmenteflemasamarillasverdes"/>
+       </f:facet>
+       <h:outputText value="#{item.p16p3actualmenteflemasamarillasverdes}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P16p4fechafinflemasamarillasverdes"/>
+       </f:facet>
+       <h:outputText value="#{item.p16p4fechafinflemasamarillasverdes}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P17p1flemassangre"/>
+       </f:facet>
+       <h:outputText value="#{item.p17p1flemassangre}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P17p2fechainicioflemassangre"/>
+       </f:facet>
+       <h:outputText value="#{item.p17p2fechainicioflemassangre}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P17p3actualmenteflemassangre"/>
+       </f:facet>
+       <h:outputText value="#{item.p17p3actualmenteflemassangre}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P17p4fechafinflemassangre"/>
+       </f:facet>
+       <h:outputText value="#{item.p17p4fechafinflemassangre}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P18p1silbidorespirar"/>
+       </f:facet>
+       <h:outputText value="#{item.p18p1silbidorespirar}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P18p2fechainiciosilbidorespirar"/>
+       </f:facet>
+       <h:outputText value="#{item.p18p2fechainiciosilbidorespirar}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P18p3actualmentesilbidorespirar"/>
+       </f:facet>
+       <h:outputText value="#{item.p18p3actualmentesilbidorespirar}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P18p4fechafinsilbidorespirar"/>
+       </f:facet>
+       <h:outputText value="#{item.p18p4fechafinsilbidorespirar}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P19p1dolorpechoespalda"/>
+       </f:facet>
+       <h:outputText value="#{item.p19p1dolorpechoespalda}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P19p2fechainiciodolorpechoespalda"/>
+       </f:facet>
+       <h:outputText value="#{item.p19p2fechainiciodolorpechoespalda}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P19p3actualmentedolorpechoespalda"/>
+       </f:facet>
+       <h:outputText value="#{item.p19p3actualmentedolorpechoespalda}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P19p4fechafindolorpechoespalda"/>
+       </f:facet>
+       <h:outputText value="#{item.p19p4fechafindolorpechoespalda}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P20p1catarro"/>
+       </f:facet>
+       <h:outputText value="#{item.p20p1catarro}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P20p2fechainiciocatarro"/>
+       </f:facet>
+       <h:outputText value="#{item.p20p2fechainiciocatarro}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P20p3actualmentecatarro"/>
+       </f:facet>
+       <h:outputText value="#{item.p20p3actualmentecatarro}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P20p4fechafincatarro"/>
+       </f:facet>
+       <h:outputText value="#{item.p20p4fechafincatarro}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P21p1estornudos"/>
+       </f:facet>
+       <h:outputText value="#{item.p21p1estornudos}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P21p2fechainicioestornudos"/>
+       </f:facet>
+       <h:outputText value="#{item.p21p2fechainicioestornudos}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P21p3actualmenteestornudos"/>
+       </f:facet>
+       <h:outputText value="#{item.p21p3actualmenteestornudos}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P21p4fechafinestornudos"/>
+       </f:facet>
+       <h:outputText value="#{item.p21p4fechafinestornudos}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P22p1comezonnariz"/>
+       </f:facet>
+       <h:outputText value="#{item.p22p1comezonnariz}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P22p2fechainiciocomezonnariz"/>
+       </f:facet>
+       <h:outputText value="#{item.p22p2fechainiciocomezonnariz}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P22p3actualmentecomezonnariz"/>
+       </f:facet>
+       <h:outputText value="#{item.p22p3actualmentecomezonnariz}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P22p4fechafincomezonnariz"/>
+       </f:facet>
+       <h:outputText value="#{item.p22p4fechafincomezonnariz}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P23p1ronquera"/>
+       </f:facet>
+       <h:outputText value="#{item.p23p1ronquera}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P23p2fechainicioronquera"/>
+       </f:facet>
+       <h:outputText value="#{item.p23p2fechainicioronquera}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P23p3actualmenteronquera"/>
+       </f:facet>
+       <h:outputText value="#{item.p23p3actualmenteronquera}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P23p4fechafinronquera"/>
+       </f:facet>
+       <h:outputText value="#{item.p23p4fechafinronquera}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P24p1dolorgarganta"/>
+       </f:facet>
+       <h:outputText value="#{item.p24p1dolorgarganta}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P24p2fechainiciodolorgarganta"/>
+       </f:facet>
+       <h:outputText value="#{item.p24p2fechainiciodolorgarganta}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P24p3actualmentedolorgarganta"/>
+       </f:facet>
+       <h:outputText value="#{item.p24p3actualmentedolorgarganta}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P24p4fechafindolorgarganta"/>
+       </f:facet>
+       <h:outputText value="#{item.p24p4fechafindolorgarganta}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P25p1mocoamarilloverde"/>
+       </f:facet>
+       <h:outputText value="#{item.p25p1mocoamarilloverde}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P25p2fechainiciomocoamarilloverde"/>
+       </f:facet>
+       <h:outputText value="#{item.p25p2fechainiciomocoamarilloverde}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P25p3actualmentemocoamarilloverde"/>
+       </f:facet>
+       <h:outputText value="#{item.p25p3actualmentemocoamarilloverde}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P25p4fechafinmocoamarilloverde"/>
+       </f:facet>
+       <h:outputText value="#{item.p25p4fechafinmocoamarilloverde}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P26p1doloroido"/>
+       </f:facet>
+       <h:outputText value="#{item.p26p1doloroido}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P26p2fechainiciodoloroido"/>
+       </f:facet>
+       <h:outputText value="#{item.p26p2fechainiciodoloroido}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P26p3actualmentedoloroido"/>
+       </f:facet>
+       <h:outputText value="#{item.p26p3actualmentedoloroido}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P26p4fechafindoloroido"/>
+       </f:facet>
+       <h:outputText value="#{item.p26p4fechafindoloroido}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P27p1secrecionoido"/>
+       </f:facet>
+       <h:outputText value="#{item.p27p1secrecionoido}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P27p2fechainiciosecrecionoido"/>
+       </f:facet>
+       <h:outputText value="#{item.p27p2fechainiciosecrecionoido}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P27p3actualmentesecrecionoido"/>
+       </f:facet>
+       <h:outputText value="#{item.p27p3actualmentesecrecionoido}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P27p4fechafinsecrecionoido"/>
+       </f:facet>
+       <h:outputText value="#{item.p27p4fechafinsecrecionoido}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P28p1diarrea"/>
+       </f:facet>
+       <h:outputText value="#{item.p28p1diarrea}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P28p2fechainiciodiarrea"/>
+       </f:facet>
+       <h:outputText value="#{item.p28p2fechainiciodiarrea}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P28p3actualmentediarrea"/>
+       </f:facet>
+       <h:outputText value="#{item.p28p3actualmentediarrea}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P28p4fechafindiarrea"/>
+       </f:facet>
+       <h:outputText value="#{item.p28p4fechafindiarrea}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P29p1vomitos"/>
+       </f:facet>
+       <h:outputText value="#{item.p29p1vomitos}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P29p2fechainiciovomitos"/>
+       </f:facet>
+       <h:outputText value="#{item.p29p2fechainiciovomitos}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P29p3actualmentevomitos"/>
+       </f:facet>
+       <h:outputText value="#{item.p29p3actualmentevomitos}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P29p4fechafinvomitos"/>
+       </f:facet>
+       <h:outputText value="#{item.p29p4fechafinvomitos}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P30p1mareo"/>
+       </f:facet>
+       <h:outputText value="#{item.p30p1mareo}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P30p2fechainiciomareo"/>
+       </f:facet>
+       <h:outputText value="#{item.p30p2fechainiciomareo}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P30p3actualmentemareo"/>
+       </f:facet>
+       <h:outputText value="#{item.p30p3actualmentemareo}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P30p4fechafinmareo"/>
+       </f:facet>
+       <h:outputText value="#{item.p30p4fechafinmareo}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P31p1debilidad"/>
+       </f:facet>
+       <h:outputText value="#{item.p31p1debilidad}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P31p2fechainiciodebilidad"/>
+       </f:facet>
+       <h:outputText value="#{item.p31p2fechainiciodebilidad}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P31p3actualmentedebilidad"/>
+       </f:facet>
+       <h:outputText value="#{item.p31p3actualmentedebilidad}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P31p4fechafindebilidad"/>
+       </f:facet>
+       <h:outputText value="#{item.p31p4fechafindebilidad}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P32p1bajapeso"/>
+       </f:facet>
+       <h:outputText value="#{item.p32p1bajapeso}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P32p2fechainiciobajapeso"/>
+       </f:facet>
+       <h:outputText value="#{item.p32p2fechainiciobajapeso}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P32p3actualmentebajapeso"/>
+       </f:facet>
+       <h:outputText value="#{item.p32p3actualmentebajapeso}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P32p4fechafinbajapeso"/>
+       </f:facet>
+       <h:outputText value="#{item.p32p4fechafinbajapeso}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P33p1cefalea"/>
+       </f:facet>
+       <h:outputText value="#{item.p33p1cefalea}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P33p2fechainiciocefalea"/>
+       </f:facet>
+       <h:outputText value="#{item.p33p2fechainiciocefalea}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P33p3actualmentecefalea"/>
+       </f:facet>
+       <h:outputText value="#{item.p33p3actualmentecefalea}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P33p4fechafincefalea"/>
+       </f:facet>
+       <h:outputText value="#{item.p33p4fechafincefalea}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P34p1iniciosubito"/>
+       </f:facet>
+       <h:outputText value="#{item.p34p1iniciosubito}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P34p2fechainicioiniciosubito"/>
+       </f:facet>
+       <h:outputText value="#{item.p34p2fechainicioiniciosubito}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P34p3actualmenteiniciosubito"/>
+       </f:facet>
+       <h:outputText value="#{item.p34p3actualmenteiniciosubito}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P34p4fechafininiciosubito"/>
+       </f:facet>
+       <h:outputText value="#{item.p34p4fechafininiciosubito}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P35flemassinresfriado"/>
+       </f:facet>
+       <h:outputText value="#{item.p35flemassinresfriado}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P36tossinresfriado"/>
+       </f:facet>
+       <h:outputText value="#{item.p36tossinresfriado}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P37silbidopecho"/>
+       </f:facet>
+       <h:outputText value="#{item.p37silbidopecho}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P38faltaairecaminarapido"/>
+       </f:facet>
+       <h:outputText value="#{item.p38faltaairecaminarapido}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P39faltaairehacecaminarlento"/>
+       </f:facet>
+       <h:outputText value="#{item.p39faltaairehacecaminarlento}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P40faltaairelodetiene"/>
+       </f:facet>
+       <h:outputText value="#{item.p40faltaairelodetiene}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P41faltaairelodetiene100metros"/>
+       </f:facet>
+       <h:outputText value="#{item.p41faltaairelodetiene100metros}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P42faltaairevestirsebanarseimpidesalir"/>
+       </f:facet>
+       <h:outputText value="#{item.p42faltaairevestirsebanarseimpidesalir}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P43p1enfisema"/>
+       </f:facet>
+       <h:outputText value="#{item.p43p1enfisema}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P43p2fechainicioenfisema"/>
+       </f:facet>
+       <h:outputText value="#{item.p43p2fechainicioenfisema}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P43p3fechafinenfisema"/>
+       </f:facet>
+       <h:outputText value="#{item.p43p3fechafinenfisema}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P44p1asmabronquitis"/>
+       </f:facet>
+       <h:outputText value="#{item.p44p1asmabronquitis}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P44p2fechainicioasmabronquitis"/>
+       </f:facet>
+       <h:outputText value="#{item.p44p2fechainicioasmabronquitis}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P44p3fechafinasmabronquitis"/>
+       </f:facet>
+       <h:outputText value="#{item.p44p3fechafinasmabronquitis}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P45p1rinitis"/>
+       </f:facet>
+       <h:outputText value="#{item.p45p1rinitis}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P45p2fechainiciorinitis"/>
+       </f:facet>
+       <h:outputText value="#{item.p45p2fechainiciorinitis}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P45p3fechafinrinitis"/>
+       </f:facet>
+       <h:outputText value="#{item.p45p3fechafinrinitis}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P46p1vih"/>
+       </f:facet>
+       <h:outputText value="#{item.p46p1vih}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P46p2fechainiciovih"/>
+       </f:facet>
+       <h:outputText value="#{item.p46p2fechainiciovih}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P46p3fechafinvih"/>
+       </f:facet>
+       <h:outputText value="#{item.p46p3fechafinvih}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P47p1bronquitiscronica"/>
+       </f:facet>
+       <h:outputText value="#{item.p47p1bronquitiscronica}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P47p2fechainiciobronquitiscronica"/>
+       </f:facet>
+       <h:outputText value="#{item.p47p2fechainiciobronquitiscronica}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P47p3fechafinbronquitiscronica"/>
+       </f:facet>
+       <h:outputText value="#{item.p47p3fechafinbronquitiscronica}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P48p1epoc"/>
+       </f:facet>
+       <h:outputText value="#{item.p48p1epoc}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P48p2fechainicioepoc"/>
+       </f:facet>
+       <h:outputText value="#{item.p48p2fechainicioepoc}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P48p3fechafinepoc"/>
+       </f:facet>
+       <h:outputText value="#{item.p48p3fechafinepoc}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P49p1enfermedadcorazon"/>
+       </f:facet>
+       <h:outputText value="#{item.p49p1enfermedadcorazon}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P49p2fechainicioenfermedadcorazon"/>
+       </f:facet>
+       <h:outputText value="#{item.p49p2fechainicioenfermedadcorazon}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P49p3fechafinenfermedadcorazon"/>
+       </f:facet>
+       <h:outputText value="#{item.p49p3fechafinenfermedadcorazon}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P50p1presionalta"/>
+       </f:facet>
+       <h:outputText value="#{item.p50p1presionalta}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P50p2fechainiciopresionalta"/>
+       </f:facet>
+       <h:outputText value="#{item.p50p2fechainiciopresionalta}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P50p3fechafinpresionalta"/>
+       </f:facet>
+       <h:outputText value="#{item.p50p3fechafinpresionalta}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P51p1diabetes"/>
+       </f:facet>
+       <h:outputText value="#{item.p51p1diabetes}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P51p2fechainiciodiabetes"/>
+       </f:facet>
+       <h:outputText value="#{item.p51p2fechainiciodiabetes}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P51p3fechafindiabetes"/>
+       </f:facet>
+       <h:outputText value="#{item.p51p3fechafindiabetes}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P52p1cancerpulmon"/>
+       </f:facet>
+       <h:outputText value="#{item.p52p1cancerpulmon}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P52p2fechainiciocancerpulmon"/>
+       </f:facet>
+       <h:outputText value="#{item.p52p2fechainiciocancerpulmon}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P52p3fechafincancerpulmon"/>
+       </f:facet>
+       <h:outputText value="#{item.p52p3fechafincancerpulmon}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P53p1tuberculosis"/>
+       </f:facet>
+       <h:outputText value="#{item.p53p1tuberculosis}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P53p2fechainiciotuberculosis"/>
+       </f:facet>
+       <h:outputText value="#{item.p53p2fechainiciotuberculosis}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P53p3fechafintuberculosis"/>
+       </f:facet>
+       <h:outputText value="#{item.p53p3fechafintuberculosis}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P54p1operacionpulmon"/>
+       </f:facet>
+       <h:outputText value="#{item.p54p1operacionpulmon}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P54p2fechainiciooperacionpulmon"/>
+       </f:facet>
+       <h:outputText value="#{item.p54p2fechainiciooperacionpulmon}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P54p3fechafinoperacionpulmon"/>
+       </f:facet>
+       <h:outputText value="#{item.p54p3fechafinoperacionpulmon}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P55p1hospitalizacioninfancia"/>
+       </f:facet>
+       <h:outputText value="#{item.p55p1hospitalizacioninfancia}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P55p2fechainiciohospitalizacioninfancia"/>
+       </f:facet>
+       <h:outputText value="#{item.p55p2fechainiciohospitalizacioninfancia}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P55p3fechafinhospitalizacioninfancia"/>
+       </f:facet>
+       <h:outputText value="#{item.p55p3fechafinhospitalizacioninfancia}">
+        <f:convertDateTime pattern="dd/MM/aaaa" />
+       </h:outputText>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P56vacunagripe12meses"/>
+       </f:facet>
+       <h:outputText value="#{item.p56vacunagripe12meses}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P57vivealguienfume"/>
+       </f:facet>
+       <h:outputText value="#{item.p57vivealguienfume}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P60fumado"/>
+       </f:facet>
+       <h:outputText value="#{item.p60fumado}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P61fumaactualmente"/>
+       </f:facet>
+       <h:outputText value="#{item.p61fumaactualmente}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P62cuantoscigarrillos"/>
+       </f:facet>
+       <h:outputText value="#{item.p62cuantoscigarrillos}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P63edadfumar"/>
+       </f:facet>
+       <h:outputText value="#{item.p63edadfumar}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P64promediocigarrosdia"/>
+       </f:facet>
+       <h:outputText value="#{item.p64promediocigarrosdia}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P64promediomenosdecigarrosdia"/>
+       </f:facet>
+       <h:outputText value="#{item.p64promediomenosdecigarrosdia}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P65fumadoalgunavez"/>
+       </f:facet>
+       <h:outputText value="#{item.p65fumadoalgunavez}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P66medicoaconsejodejarfumar"/>
+       </f:facet>
+       <h:outputText value="#{item.p66medicoaconsejodejarfumar}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P67fumarasesoriadejarlo"/>
+       </f:facet>
+       <h:outputText value="#{item.p67fumarasesoriadejarlo}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P68fumartratamientodejarlo"/>
+       </f:facet>
+       <h:outputText value="#{item.p68fumartratamientodejarlo}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P69edaddejofumar"/>
+       </f:facet>
+       <h:outputText value="#{item.p69edaddejofumar}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P70fumartipotratamiento"/>
+       </f:facet>
+       <h:outputText value="#{item.p70fumartipotratamiento}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P71sinofumaconvivefumador"/>
+       </f:facet>
+       <h:outputText value="#{item.p71sinofumaconvivefumador}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P72promediocontactofumador"/>
+       </f:facet>
+       <h:outputText value="#{item.p72promediocontactofumador}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P73mas14bebidasalcoholicas"/>
+       </f:facet>
+       <h:outputText value="#{item.p73mas14bebidasalcoholicas}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P74utilizaalgunadroga"/>
+       </f:facet>
+       <h:outputText value="#{item.p74utilizaalgunadroga}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P75trabajopolvoshumos"/>
+       </f:facet>
+       <h:outputText value="#{item.p75trabajopolvoshumos}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P76trabajoconasbestos"/>
+       </f:facet>
+       <h:outputText value="#{item.p76trabajoconasbestos}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P77lenacocinar"/>
+       </f:facet>
+       <h:outputText value="#{item.p77lenacocinar}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P78lenacocinarcuanto"/>
+       </f:facet>
+       <h:outputText value="#{item.p78lenacocinarcuanto}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P79chimenea"/>
+       </f:facet>
+       <h:outputText value="#{item.p79chimenea}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P80promediohoraslena"/>
+       </f:facet>
+       <h:outputText value="#{item.p80promediohoraslena}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P81todavialena"/>
+       </f:facet>
+       <h:outputText value="#{item.p81todavialena}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P82insomnio"/>
+       </f:facet>
+       <h:outputText value="#{item.p82insomnio}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P83pastillasdormir"/>
+       </f:facet>
+       <h:outputText value="#{item.p83pastillasdormir}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P84ronca"/>
+       </f:facet>
+       <h:outputText value="#{item.p84ronca}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P85intensidadronquido"/>
+       </f:facet>
+       <h:outputText value="#{item.p85intensidadronquido}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P86frecuenciaronquido"/>
+       </f:facet>
+       <h:outputText value="#{item.p86frecuenciaronquido}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P87ronquidomolesto"/>
+       </f:facet>
+       <h:outputText value="#{item.p87ronquidomolesto}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P88dejarespirardormido"/>
+       </f:facet>
+       <h:outputText value="#{item.p88dejarespirardormido}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P89frecuenciacansanciodespertar"/>
+       </f:facet>
+       <h:outputText value="#{item.p89frecuenciacansanciodespertar}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P90cansanciodia"/>
+       </f:facet>
+       <h:outputText value="#{item.p90cansanciodia}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P91cabeceadotransporte"/>
+       </f:facet>
+       <h:outputText value="#{item.p91cabeceadotransporte}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P92cabeceadotransportefrec"/>
+       </f:facet>
+       <h:outputText value="#{item.p92cabeceadotransportefrec}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P93piso"/>
+       </f:facet>
+       <h:outputText value="#{item.p93piso}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P94aguaentubada"/>
+       </f:facet>
+       <h:outputText value="#{item.p94aguaentubada}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="Responsablellenado"/>
+       </f:facet>
+       <h:outputText value="#{item.responsablellenado}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="Sr2"/>
+       </f:facet>
+       <h:outputText value="#{item.sr2}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P14diagnostico"/>
+       </f:facet>
+       <h:outputText value="#{item.p14diagnostico}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P15bbaciloscopia"/>
+       </f:facet>
+       <h:outputText value="#{item.p15bbaciloscopia}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P15ccultivobac"/>
+       </f:facet>
+       <h:outputText value="#{item.p15ccultivobac}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="P20diagnostico"/>
+       </f:facet>
+       <h:outputText value="#{item.p20diagnostico}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="Version"/>
+       </f:facet>
+       <h:outputText value="#{item.version}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="Z01capturo"/>
+       </f:facet>
+       <h:outputText value="#{item.z01capturo}"/>
+      </p:column>
+      <p:column>
+       <f:facet name="header">
+        <h:outputText value="Z02fechacaptura"/>
+       </f:facet>
+       <h:outputText value="#{item.z02fechacaptura}">
+        <f:convertDateTime pattern="dd/MM/aaaa HH:mm:ss" />
+       </h:outputText>
+      </p:column>
+
+     </p:dataTable>
+    </h:form>
+
+
+   </ui:define>
+
+  </ui:composition>
+
+ </h:body>
+</html>

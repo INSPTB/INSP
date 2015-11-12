@@ -1,0 +1,65 @@
+/* 
+    Document   : mycss
+    Created on : 28/06/2012, 05:06:34 PM
+    Author     : rogelio.montero
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.ui-panel .ui-panel-titlebar {
+    height: 25px;
+}
+
+.col{
+  border-style: solid;
+  background-color:lightblue
+}
+
+.col2{
+  border-style: solid;
+  background-color:yellowgreen
+}
+
+.col3{
+  border-style: solid;
+  background-color:orchid
+}
+
+.col4{
+  border-style: solid;
+  background-color:goldenrod
+}
+
+.col5{
+  border-style: solid;
+  background-color:limegreen
+}
+
+.col6{
+  border-style: solid;
+  background-color:#90b4bd
+}
+
+.title {
+  font-weight: bold;
+  font-size: x-large;
+  color: black
+}
+
+.colsAlignTop{
+  vertical-align: top;
+ 
+}
+
+.colMenu{
+    background-color:#036fab;
+    border-style: none;
+    border:0;
+     
+}
+
+
